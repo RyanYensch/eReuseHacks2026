@@ -5,7 +5,7 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: "context-menu-item",
     title: "Detect AI",
-    contexts: ["all"]
+    contexts: ["image", "selection"] // Only selects images and text, can add for video later
   });
 });
 
