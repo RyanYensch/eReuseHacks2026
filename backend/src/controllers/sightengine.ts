@@ -12,7 +12,7 @@ if (!sightengineApiUser || !sightengineApiSecret) {
 
 export async function detectAiImageFromUrl(imageUrl: string): Promise<SightengineImageResponse> {
     const response = await axios.get<SightengineImageResponse>(
-        "https://api.sightengine.ai/1.0/check.json", {
+        "https://api.sightengine.com/1.0/check.json", {
         params: {
             url: imageUrl,
             models: "genai",
