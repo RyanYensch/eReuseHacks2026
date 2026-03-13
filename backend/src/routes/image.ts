@@ -1,31 +1,26 @@
 import { Router, type Request, type Response } from "express";
 import axios from "axios";
 
-import { detectAiText } from "../controllers/sapling";
-import type { TextRequest, TextReponse } from "../types/sapling";
-import type { TextApiErrorResponse, TextApiSuccessResponse, TextApiResponse } from "../../../shared/types/textApi";
+import { detectAiImageFromUrl } from "../controllers/sightengine";
+import type { ImageApiResponse, ImageRequest } from "../../../shared/types/imageApi";
 
 const router = Router()
 
 router.post("/", async (
-    req: Request<{}, TextApiResponse, Omit<TextRequest, "key">>,
-    res: Response<TextApiResponse>
+    req: Request<{}, ImageApiResponse, ImageRequest>,
+    res: Response<ImageApiResponse>
 ) => {
-    const { text, sent_scores, score_string } = req.body;
+    const { imageUrl } = req.body;
 
     try {
-        if (typeof text !== "string" || text.trim() === "") {
+        if (typeof imageUrl !== "string" || imageUrl.trim() === "") {
             return res.status(400).json({
                 ok: false,
-                error: "Missing or invalid text"
+                error: "Missing or invalid imageUrl"
             });
         }
 
-        const data = await detectAiText({
-            text,
-            sent_scores,
-            score_string,
-        });
+        const data = await detectAiImageFromUrl(imageUrl);
 
         return res.status(200).json({
             ok: true,
@@ -37,7 +32,7 @@ router.post("/", async (
 
             return res.status(502).json({
                 ok: false,
-                error: `Saplin request failed: ${msg}`
+                error: `Sightengine request failed: ${msg}`
             });
         }
 

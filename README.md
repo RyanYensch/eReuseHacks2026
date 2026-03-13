@@ -39,4 +39,11 @@ npm run dev
 ```ENV
 PORT=6767
 SAPLING_API_KEY=PRIVATE_KEY
+SIGHTENGINE_API_USER=USER_ID
+SIGHTENGINE_API_SECRET=SECRET
 ```
+
+#### Where to get API Keys
+
+- `SAPLING_API_KEY`: [API Access](https://sapling.ai/docs/api/api-access/)
+- `SIGHTENGINE_API_USER` and `SIGHTENGINE_API_SECRET`: [Sightengine Sign Up](https://dashboard.sightengine.com/signup)

@@ -162,3 +162,90 @@ curl -X POST http://localhost:6767/text \
     "error": "Sapling request failed: ..."
 }
 ```
+
+### `POST /image`
+
+Runs Sightengine AI image detection on an imageUrl
+
+#### Request
+
+- Method: `POST`
+- Content-Type: `application/json`
+
+### Request Body
+
+```TYPESCRIPT
+{
+    imageUrl: string;
+}
+```
+
+#### Request Body Fields
+
+- `imageUrl`: A public URL to the image
+
+#### Example Request
+
+```BASH
+curl -X POST http://localhost:6767/image \
+  -H "Content-Type: application/json" \
+  -d '{
+    "imageUrl": "https://sightengine.com/assets/img/examples/example-prop-c1.jpg"
+  }'
+```
+
+#### Success Response
+
+**Status:** `200 OK`
+
+```JSON
+{
+  "ok": true,
+  "data": {
+    "status": "success",
+    "request": {
+      "id": "req_0zrbHDeitGYY7wEGncAne",
+      "timestamp": 1491402308.4762,
+      "operations": 5
+    },
+    "type": {
+      "ai_generated": 0.01
+    },
+    "media": {
+      "id": "med_0zrbk8nlp4vwI5WxIqQ4u",
+      "uri": "https://sightengine.com/assets/img/examples/example-prop-c1.jpg"
+    }
+  }
+}
+```
+
+### Success Response Fields
+
+- `ok`: If the request succeeded
+- `data.status`: API status from Sightengine
+- `data.request.id`: Sightengine request id
+- `data.request.timestamp`: Request timestamp
+- `data.request.operations`: The number of operations that were used
+- `data.type.ai_generated`: AI Likelihood score 0-1
+- `data.media.id`: Sightengine media ID
+- `data.media.uri`: image URL
+
+### Error Reponse
+
+**Status:** `400 Bad Request`
+
+```JSON
+{
+    "ok": false,
+    "error": "Missing or invalid imageUrl"
+}
+```
+
+**Status:** `500 Internal Server Error` or `502 Bad Gateway`
+
+```JSON
+{
+    "ok": false,
+    "error": "Sightengine request failed: ..."
+}
+```
