@@ -18,7 +18,7 @@ function IndexPopup() {
         {/* Some gif / video to show a demo */}
         <div className='w-full flex flex-col items-center justify-center py-20 gap-10'>
           <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=aReM6MBodtFcRTC7" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-          <p className='text-sm text-center px-4'>Right-click on a webpage, select the extension, highlight desired text and images</p>
+          <p className='text-sm text-center px-4 font-bold'>Right-click on a webpage, select the extension, highlight desired text and images</p>
         </div>
 
         {/* Horizontal line */}
