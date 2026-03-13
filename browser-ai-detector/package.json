@@ -27,6 +27,8 @@
     "host_permissions": [
       "https://*/*"
     ],
-    "permissions": ["contextMenus"]
+    "permissions": [
+      "contextMenus"
+    ]
   }
 }
