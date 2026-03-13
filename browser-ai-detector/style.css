@@ -1,0 +1,20 @@
+/* Adding Root Styles for Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Adjusting popup window size */
+.popup-window {
+    width: 360px; 
+    height: 500px;
+    margin: 0;
+    padding: 0;
+
+    color: white;
+    background-color: oklch(37.3% 0.034 259.733);
+
+    border-color: grey;
+    border-width: 1px;
+
+    font-family: sans-serif;
+}
