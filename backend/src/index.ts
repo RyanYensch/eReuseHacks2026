@@ -27,6 +27,7 @@ app.get("/", (_req, res) => {
 app.use("/health", healthRouter);
 
 app.use("/text", textRouter);
+app.use("/image", imageRouter);
 
 app.use((req, res) => {
     res.status(404).json({
