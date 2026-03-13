@@ -12,6 +12,9 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "context-menu-item") {
     console.log("Selected text:", info.selectionText);
-    // Add more actions here
+    chrome.sidePanel.open({ windowId: tab.windowId });
+
+    // Use info.mediaType to check for 'image' type
+    // Use info.selectedText to get the text for the context selection
   }
 });
