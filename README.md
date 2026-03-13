@@ -34,8 +34,9 @@ npm i
 npm run dev
 ```
 
-#### ENV
+#### Backend ENV
 
 ```ENV
 PORT=6767
+SAPLING_API_KEY=PRIVATE_KEY
 ```
