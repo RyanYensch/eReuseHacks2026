@@ -3,7 +3,6 @@ import express from "express"
 import cors from "cors"
 
 import healthRouter from "./routes/health"
-import { error } from "node:console";
 
 const app = express();
 const port = Number(process.env.PORT || 6767);
