@@ -1,0 +1,13 @@
+/* Adding Root Styles for Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Adjusting popup window size */
+.popup-window {
+    width: 360px;  /* Set your desired width, up to 800px */
+    height: 500px; /* Set your desired height, up to 600px */
+    /* Remove default margins that might be restricting space */
+    margin: 0;
+    padding: 0;
+}
