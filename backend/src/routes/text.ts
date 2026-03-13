@@ -3,8 +3,7 @@ import axios from "axios";
 
 import { detectAiText } from "../controllers/sapling";
 import type { TextRequest, TextReponse } from "../types/sapling";
-import type { TextApiErrorResponse, TextApiSuccessResponse, TextApiResponse } from "../types/textApi";
-import { text } from "node:stream/consumers";
+import type { TextApiErrorResponse, TextApiSuccessResponse, TextApiResponse } from "../../../shared/types/textApi";
 
 const router = Router()
 
