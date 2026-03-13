@@ -4,6 +4,7 @@ import cors from "cors"
 
 import healthRouter from "./routes/health"
 import textRouter from "./routes/text"
+import imageRouter from "./routes/image"
 
 const app = express();
 const port = Number(process.env.PORT || 6767);
