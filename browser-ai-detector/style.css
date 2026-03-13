@@ -5,9 +5,16 @@
 
 /* Adjusting popup window size */
 .popup-window {
-    width: 360px;  /* Set your desired width, up to 800px */
-    height: 500px; /* Set your desired height, up to 600px */
-    /* Remove default margins that might be restricting space */
+    width: 360px; 
+    height: 500px;
     margin: 0;
     padding: 0;
+
+    color: white;
+    background-color: oklch(37.3% 0.034 259.733);
+
+    border-color: grey;
+    border-width: 1px;
+
+    font-family: sans-serif;
 }
