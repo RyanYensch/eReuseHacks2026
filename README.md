@@ -2,6 +2,10 @@ This is a [Plasmo extension](https://docs.plasmo.com/) project bootstrapped with
 
 ## Getting Started
 
+Install dependencies
+
+```npm i```
+
 First, run the development server:
 
 ```bash
