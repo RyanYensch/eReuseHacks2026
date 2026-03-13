@@ -3,6 +3,7 @@ import express from "express"
 import cors from "cors"
 
 import healthRouter from "./routes/health"
+import textRouter from "./routes/text"
 
 const app = express();
 const port = Number(process.env.PORT || 6767);
@@ -23,6 +24,8 @@ app.get("/", (_req, res) => {
 });
 
 app.use("/health", healthRouter);
+
+app.use("/text", textRouter);
 
 app.use((req, res) => {
     res.status(404).json({
