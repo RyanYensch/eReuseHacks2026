@@ -1,4 +1,4 @@
-import { TextReponse } from "../../backend/src/types/sapling";
+import type { TextReponse } from "../../backend/src/types/sapling";
 
 export type TextApiErrorResponse = {
     ok: false;
