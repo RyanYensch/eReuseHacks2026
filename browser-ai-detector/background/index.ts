@@ -3,7 +3,6 @@ import type { PanelState } from "~lib/types";
 import { formatImageDetection, formatTextDetection } from "~lib/formatters";
 import { fakeImageApiCall, fakeTextApiCall } from "~lib/fakeApiCalls";
 
-// Required for Plasmo to treat the file as a module
 export {};
 
 chrome.runtime.onInstalled.addListener(() => {
@@ -14,6 +13,7 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
+// Handles AI detection and updates status for sidepanel display
 const handleApiCall = async (info) => {
   // Handle AI detection API calls
   if (info.mediaType == "image") {
@@ -63,6 +63,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === "context-menu-item") {
     chrome.sidePanel.open({ windowId: tab.windowId });
 
+    // Filler state before API call is done
     const loadingState: PanelState = { status: "loading" };
     await chrome.storage.session.set({ panelState: loadingState });
     handleApiCall(info);
