@@ -1,7 +1,5 @@
 import { detectText, detectImage } from "~lib/api";
-import type { AiDetectRequest, PanelState } from "~lib/types";
-import type { TextApiResponse } from "../../shared/types/textApi";
-import type { ImageApiResponse } from "../../shared/types/imageApi";
+import type { PanelState } from "~lib/types";
 import { formatImageDetection, formatTextDetection } from "~lib/formatters";
 import { fakeImageApiCall, fakeTextApiCall } from "~lib/fakeApiCalls";
 
@@ -29,12 +27,14 @@ const handleApiCall = async (info) => {
         status: "success",
         result: formatImageDetection(res)
       };
+      await chrome.storage.session.set({ panelState: successState });
     } catch (e) {
       // Update state to error
       const errorState: PanelState = {
         status: "error",
         error: e
       };
+      await chrome.storage.session.set({ panelState: errorState });
     }
   } else {
     // Handle text
@@ -49,12 +49,14 @@ const handleApiCall = async (info) => {
         status: "success",
         result: formatTextDetection(res)
       };
+      await chrome.storage.session.set({ panelState: successState });
     } catch (e) {
       // Update state to error
       const errorState: PanelState = {
         status: "error",
         error: e
       };
+      await chrome.storage.session.set({ panelState: errorState });
     }
   }
 };
@@ -67,4 +69,3 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     handleApiCall(info);
   }
 });
-

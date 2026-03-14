@@ -50,7 +50,6 @@ export function formatTextDetection(
     }
 }
 
-
 export function formatImageDetection(
     response: ImageApiResponse
 ): AiDetectResult {
