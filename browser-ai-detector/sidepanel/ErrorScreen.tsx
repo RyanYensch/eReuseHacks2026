@@ -5,7 +5,7 @@ export function ErrorScreen({ error }) {
   return (
     <div className="flex flex-col justify-center h-screen bg-gray-800">
       <div className='flex items-center flex-col text-center gap-10'>
-        <div className='flex flex-col gap-2 is-[90vw] sm:is-[unset]'>
+        <div className='flex flex-col font-sans gap-2 is-[90vw] sm:is-[unset]'>
           <h1 className="mb-4 text-6xl font-bold text-white text-heading md:text-7xl lg:text-8xl">
             ERROR
           </h1>
