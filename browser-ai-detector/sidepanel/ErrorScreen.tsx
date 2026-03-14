@@ -1,7 +1,7 @@
 export function ErrorScreen() {
   return (
     <>
-      <p>Loading</p>
+      <p>Error</p>
     </>
   );
 };
