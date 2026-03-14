@@ -1,9 +1,9 @@
 import { detectText, detectImage } from "~lib/api";
 import type { PanelState } from "~lib/types";
 import { formatImageDetection, formatTextDetection } from "~lib/formatters";
-import { fakeImageApiCall, fakeTextApiCall } from "~lib/fakeApiCalls";
+import { fakeErrorApiCall, fakeImageApiCall, fakeTextApiCall } from "~lib/fakeApiCalls";
 
-export {};
+export { };
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
@@ -18,41 +18,44 @@ const handleApiCall = async (info) => {
   // Handle AI detection API calls
   if (info.mediaType == "image") {
     // Handle image
-    try {
-      // TODO: Uncomment the API calls for real usage
-      // const res = await detectImage(info.Url);
+    // TODO: Uncomment the API calls for real usage
+    // const res = await detectImage(info.Url);
 
-      const res = await fakeImageApiCall();
+    const res = await fakeImageApiCall();
+    // const res = await fakeErrorApiCall();
+
+    if (res.ok !== false) {
       const successState: PanelState = {
         status: "success",
         result: formatImageDetection(res)
       };
       await chrome.storage.session.set({ panelState: successState });
-    } catch (e) {
-      // Update state to error
+    } else {
       const errorState: PanelState = {
         status: "error",
-        error: e
+        error: res.error
       };
       await chrome.storage.session.set({ panelState: errorState });
     }
   } else {
     // Handle text
-    try {
-      // TODO: Uncomment the API calls for real usage
-      // const res = await detectText(info.selectionText);
+    // TODO: Uncomment the API calls for real usage
+    // const res = await detectText(info.selectionText);
 
-      const res = await fakeTextApiCall();
+    const res = await fakeTextApiCall();
+
+    if (res.ok !== false) {
+
       const successState: PanelState = {
         status: "success",
         result: formatTextDetection(res)
       };
       await chrome.storage.session.set({ panelState: successState });
-    } catch (e) {
+    } else {
       // Update state to error
       const errorState: PanelState = {
         status: "error",
-        error: e
+        error: res.error
       };
       await chrome.storage.session.set({ panelState: errorState });
     }
