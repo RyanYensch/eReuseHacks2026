@@ -37,7 +37,7 @@ export const fakeTextApiCallLong = async (): Promise<TextApiResponse> => {
   return {
     "ok": true,
     "data": {
-      "score": 0.999822979797514,
+      "score": 0.9667122979797514,
       "sentence_scores": [
         {
           "score": 0.9779880698942078,
