@@ -21,8 +21,8 @@ const handleApiCall = async (info) => {
     // TODO: Uncomment the API calls for real usage
     // const res = await detectImage(info.Url);
 
-    const res = await fakeImageApiCall();
-    // const res = await fakeErrorApiCall();
+    // const res = await fakeImageApiCall();
+    const res = await fakeErrorApiCall();
 
     if (res.ok !== false) {
       const successState: PanelState = {
