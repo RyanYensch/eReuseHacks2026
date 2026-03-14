@@ -28,8 +28,12 @@ export function formatTextDetection(
     request: Extract<AiDetectRequest, { kind: "text" }>,
     response: TextApiResponse
 ): AiDetectResult {
-    if (!response.ok) {
-        throw new Error(response.error || "Text Detection Failed");
+    if (!response.ok || !response.data) {
+        if ("error" in response) {
+            throw new Error(response.error);
+        }
+
+        throw new Error("Text Detection Failed");
     }
 
     return {
@@ -52,8 +56,12 @@ export function formatImageDetection(
     request: Extract<AiDetectRequest, { kind: "image" }>,
     response: ImageApiResponse
 ): AiDetectResult {
-    if (!response.ok) {
-        throw new Error(response.error || "Image Detection Failed");
+    if (!response.ok || !response.data) {
+        if ("error" in response) {
+            throw new Error(response.error);
+        }
+
+        throw new Error("Image Detection Failed");
     }
 
     const score = response.data.type.ai_generated;
