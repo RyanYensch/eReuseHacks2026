@@ -25,8 +25,8 @@ function IndexSidePanel() {
     switch(state.status) {
       case "idle": return <IdleScreen />
       case "loading": return <LoadingScreen />
-      case "success": return <SuccessScreen />
-      case "error": return <ErrorScreen />
+      case "success": return <SuccessScreen result={state.result} />
+      case "error": return <ErrorScreen error={state.error} />
       default: break
     }
   };
