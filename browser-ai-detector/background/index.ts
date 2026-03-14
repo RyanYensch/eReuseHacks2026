@@ -1,7 +1,7 @@
 import { detectText, detectImage } from "~lib/api";
 import type { PanelState } from "~lib/types";
 import { formatImageDetection, formatTextDetection } from "~lib/formatters";
-import { fakeImageApiCall, fakeImageErrorApiCall, fakeTextApiCall, fakeTextErrorApiCall } from "~lib/fakeApiCalls";
+import { fakeImageApiCall, fakeTextApiCall, fakeTextApiCallLong } from "~lib/fakeApiCalls";
 
 export { };
 
@@ -42,8 +42,8 @@ const handleApiCall = async (info) => {
     // TODO: Uncomment the API calls for real usage
     // const res = await detectText(info.selectionText);
 
-    const res = await fakeTextApiCall();
-    // const res = await fakeTextErrorApiCall();
+    // const res = await fakeTextApiCall();
+    const res = await fakeTextApiCallLong();
 
     if (res.ok !== false) {
       const successState: PanelState = {
