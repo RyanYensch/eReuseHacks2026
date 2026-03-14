@@ -1,6 +1,6 @@
 {
   "name": "browser-ai-detector",
-  "displayName": "Browser ai detector",
+  "displayName": "Browser AI Detector",
   "version": "0.0.1",
   "description": "Detects AI in webcontent including text, images, and video",
   "author": "eReuse Hacks",
@@ -12,7 +12,8 @@
   "dependencies": {
     "plasmo": "0.90.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-gauge-component": "^2.0.26"
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "4.1.1",
@@ -32,7 +33,8 @@
     ],
     "permissions": [
       "contextMenus",
-      "sidePanel"
+      "sidePanel",
+      "storage"
     ]
   }
 }

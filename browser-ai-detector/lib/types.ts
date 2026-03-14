@@ -42,13 +42,9 @@ export type AiDetectResultImage = {
 export type AiDetectResult = AiDetectResultText | AiDetectResultImage;
 
 
-
 export type PanelState =
     | { status: "idle" }
-    | {
-        status: "loading";
-        request: AiDetectRequest;
-    }
+    | { status: "loading" }
     | {
         status: "success";
         result: AiDetectResult;
