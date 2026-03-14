@@ -28,11 +28,11 @@
   },
   "manifest": {
     "host_permissions": [
-      "https://localhost/6767"
+      "https://localhost:6767/*"
     ],
     "permissions": [
       "contextMenus",
-      "suidePanel"
+      "sidePanel"
     ]
   }
 }
