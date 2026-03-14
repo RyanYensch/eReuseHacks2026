@@ -58,24 +58,12 @@ export function SuccessScreen({ result }) {
                 { value: 60 },
                 { value: 80 }
               ],
-<<<<<<< HEAD
-              defaultTickValueConfig: { style: { fontSize: "9px", fill: "#000000" } },
-=======
               defaultTickValueConfig: { style: { fontSize: "9px", fill: "#ffffffcb" } },
->>>>>>> main
               defaultTickLineConfig: {
                 distanceFromText: 8,
                 distanceFromArc: 5,
                 width: 1,
                 length: 4,
-<<<<<<< HEAD
-                color: "#000000"
-              }
-            }
-          }}
-      />
-    </>
-=======
                 color: "#ffffffc2"
               }
             }
@@ -98,6 +86,5 @@ export function SuccessScreen({ result }) {
         )}
       </div>
     </div>
->>>>>>> main
   );
 };
