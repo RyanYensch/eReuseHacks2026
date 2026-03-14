@@ -35,6 +35,7 @@ export type AiDetectResultImage = {
     score: number;
     percentage: string;
     likelihood: string;
+    imageUrl?: string;
 }
 
 

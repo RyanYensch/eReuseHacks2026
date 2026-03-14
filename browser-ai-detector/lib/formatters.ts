@@ -24,3 +24,26 @@ export function truncateText(text: string, maxLength: number = 180): string {
 
     return `${trimmed.slice(0, maxLength).trimEnd()}...`;
 }
+
+export function formatTextDetection(
+    request: Extract<AiDetectRequest, { kind: "text" }>,
+    response: TextApiResponse
+): AiDetectResult {
+    if (!response.ok) {
+        throw new Error(response.error || "Text Detection Failed");
+    }
+
+    return {
+        kind: "text",
+        title: "AI Text Detection",
+        score: response.data.score,
+        percentage: scoreToPercent(response.data.score),
+        likelihood: scoreToLikelihood(response.data.score),
+        preview: truncateText(response.data.text),
+        sentences: response.data.sentence_scores?.map((item) => ({
+            sentence: item.sentence,
+            score: item.score,
+            percentage: scoreToPercent(item.score)
+        }))
+    }
+}
