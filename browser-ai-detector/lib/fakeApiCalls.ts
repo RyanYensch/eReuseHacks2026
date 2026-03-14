@@ -55,7 +55,15 @@ export const fakeImageApiCall = async (): Promise<ImageApiResponse> => {
 }
 
 
-export const fakeErrorApiCall = async (): Promise<ImageApiResponse> => {
+export const fakeImageErrorApiCall = async (): Promise<ImageApiResponse> => {
+  await new Promise(resolve => setTimeout(resolve, 2000));
+  return {
+    "ok": false,
+    "error": "Saplin request failed: This is a test error"
+  }
+}
+
+export const fakeTextErrorApiCall = async (): Promise<TextApiResponse> => {
   await new Promise(resolve => setTimeout(resolve, 2000));
   return {
     "ok": false,

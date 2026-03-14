@@ -1,7 +1,7 @@
 import { detectText, detectImage } from "~lib/api";
 import type { PanelState } from "~lib/types";
 import { formatImageDetection, formatTextDetection } from "~lib/formatters";
-import { fakeErrorApiCall, fakeImageApiCall, fakeTextApiCall } from "~lib/fakeApiCalls";
+import { fakeImageApiCall, fakeImageErrorApiCall, fakeTextApiCall, fakeTextErrorApiCall } from "~lib/fakeApiCalls";
 
 export { };
 
@@ -21,8 +21,8 @@ const handleApiCall = async (info) => {
     // TODO: Uncomment the API calls for real usage
     // const res = await detectImage(info.Url);
 
-    const res = await fakeImageApiCall();
-    // const res = await fakeErrorApiCall();
+    // const res = await fakeImageApiCall();
+    const res = await fakeImageErrorApiCall();
 
     if (res.ok !== false) {
       const successState: PanelState = {
@@ -43,9 +43,9 @@ const handleApiCall = async (info) => {
     // const res = await detectText(info.selectionText);
 
     const res = await fakeTextApiCall();
+    // const res = await fakeTextErrorApiCall();
 
     if (res.ok !== false) {
-
       const successState: PanelState = {
         status: "success",
         result: formatTextDetection(res)
