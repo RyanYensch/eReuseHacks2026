@@ -12,7 +12,7 @@ export async function detectText(text: string): Promise<TextApiResponse> {
         body: JSON.stringify({
             text,
             sent_scores: true,
-            sccore_string: false
+            score_string: false
         })
     });
 
