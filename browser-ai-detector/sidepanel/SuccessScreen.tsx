@@ -19,7 +19,7 @@ function HighlightedText({ result }) {
 export function SuccessScreen({ result }) {
   return (
     // This is where the results will be shown
-    <div className="flex flex-col justify-center h-screen bg-gray-800">
+    <div className="flex flex-col justify-center min-h-screen bg-gray-800">
       <div className="success-page">
         <h1 className="mb-4 text-3xl font-bold text-white text-heading md:text-5xl lg:text-6xl">
           Browser&nbsp;
