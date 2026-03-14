@@ -1,17 +1,16 @@
 import type { TextApiResponse } from "../../shared/types/textApi";
 
-export type DetectionRequestText = {
+export type AiDetectRequestText = {
     kindL: "text",
     value: string;
 }
 
-export type DetectionRequestImage = {
+export type AiDetectRequestImage = {
     kindL: "image",
     value: string;
 }
 
-export type DetectionRequest = DetectionRequestText | DetectionRequestImage;
-
+export type AiDetectRequest = AiDetectRequestText | AiDetectRequestImage;
 
 
 export type sentenceScore = {
@@ -26,6 +25,7 @@ export type AiDetectResultText = {
     score: number;
     percentage: string;
     likelihood: string;
+    preview: string;
     sentences?: sentenceScore[];
 }
 
