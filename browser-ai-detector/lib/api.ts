@@ -1,6 +1,7 @@
-const API_BASE_URL = "http://localhost:6767"
 import type { TextApiResponse } from "../../shared/types/textApi"
 import type { ImageApiResponse } from "../../shared/types/imageApi"
+
+const API_BASE_URL = "http://localhost:6767"
 
 export async function detectText(text: string): Promise<TextApiResponse> {
     const res = await fetch(`${API_BASE_URL}/text`, {

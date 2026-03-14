@@ -5,6 +5,8 @@ import type { PanelState } from "~lib/types"
 
 function IndexSidePanel() {
   const [data, setData] = useState("")
+  const [state, setState] = useState<PanelState>({ status: "idle" });
+
 
   return (
     <div

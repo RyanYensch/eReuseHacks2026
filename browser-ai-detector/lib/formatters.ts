@@ -7,7 +7,7 @@ export function scoreToPercent(score: number): string {
 }
 
 export function scoreToLikelihood(score: number): string {
-    if (score < 0.1) return "Verly Likely Human";
+    if (score < 0.1) return "Very Likely Human";
     if (score < 0.2) return "Likely Human";
     if (score < 0.4) return "Unlikely Human";
     if (score < 0.6) return "Likely Ai Generated";
