@@ -38,8 +38,6 @@ const handleApiCall = async (info) => {
     }
   } else {
     // Handle text
-    console.log("Selected text:", info.selectionText);
-
     try {
       // TODO: Uncomment the API calls for real usage
       // const res = await detectText(info.selectionText);
@@ -63,9 +61,10 @@ const handleApiCall = async (info) => {
 
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === "context-menu-item") {
+    chrome.sidePanel.open({ windowId: tab.windowId });
+
     const loadingState: PanelState = { status: "loading" };
     await chrome.storage.session.set({ panelState: loadingState });
-    await chrome.sidePanel.open({ windowId: tab.windowId });
     handleApiCall(info);
   }
 });
