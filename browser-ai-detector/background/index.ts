@@ -19,10 +19,10 @@ const handleApiCall = async (info) => {
   if (info.mediaType == "image") {
     // Handle image
     // TODO: Uncomment the API calls for real usage
-    // const res = await detectImage(info.Url);
+    const res = await detectImage(info.srcUrl);
 
-    const res = await fakeImageApiCall();
-    // const res = await fakeImageErrorApiCall();
+    // const res = await fakeImageApiCall();
+    // const res = await fakeErrorApiCall();
 
     if (res.ok !== false) {
       const successState: PanelState = {
@@ -40,10 +40,9 @@ const handleApiCall = async (info) => {
   } else {
     // Handle text
     // TODO: Uncomment the API calls for real usage
-    // const res = await detectText(info.selectionText);
+    const res = await detectText(info.selectionText);
 
-    // const res = await fakeTextApiCall();
-    const res = await fakeTextApiCallLong();
+    //const res = await fakeTextApiCallLong();
 
     if (res.ok !== false) {
       const successState: PanelState = {
