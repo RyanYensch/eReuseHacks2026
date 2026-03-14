@@ -1,7 +1,6 @@
 import type { AiDetectResult, AiDetectRequest } from "./types";
 import type { TextApiResponse } from "../../shared/types/textApi";
 import type { ImageApiResponse } from "../../shared/types/imageApi";
-import { text } from "stream/consumers";
 
 export function scoreToPercent(score: number): string {
     return `${(score * 100).toFixed(2)}%`;
@@ -45,5 +44,26 @@ export function formatTextDetection(
             score: item.score,
             percentage: scoreToPercent(item.score)
         }))
+    }
+}
+
+
+export function formatImageDetection(
+    request: Extract<AiDetectRequest, { kind: "image" }>,
+    response: ImageApiResponse
+): AiDetectResult {
+    if (!response.ok) {
+        throw new Error(response.error || "Image Detection Failed");
+    }
+
+    const score = response.data.type.ai_generated;
+
+    return {
+        kind: "image",
+        title: "AI Image Detection",
+        score: score,
+        percentage: scoreToPercent(score),
+        likelihood: scoreToLikelihood(score),
+        imageUrl: response.data.media.uri
     }
 }
