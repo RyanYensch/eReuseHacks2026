@@ -1,5 +1,20 @@
 import GaugeComponent from "~node_modules/react-gauge-component/dist/lib";
 import "./success.css"
+import { getHighlightedTokens } from "~lib/formatters";
+
+function HighlightedText({ result }) {
+  const parts = getHighlightedTokens(result, 0.4);
+
+  return parts.map((part, i) => (
+    <span
+      key={i}
+      className={part.highlighted ? "bg-yellow-600 text-black" : ""}
+      title={`Score: ${part.score.toFixed(2)}`}
+    >
+      {part.text}
+    </span>
+  ));
+}
 
 export function SuccessScreen({ result }) {
   return (
@@ -31,7 +46,7 @@ export function SuccessScreen({ result }) {
             colorArray: ["#5BE12C", "#F5CD19", "#EA4228"],
             effects: { glow: false }
           }}
-        pointer={{
+          pointer={{
             type: "arrow",
             color: "#dfa810",
             maxFps: 30,
@@ -41,7 +56,7 @@ export function SuccessScreen({ result }) {
             strokeWidth: 0,
             arrowOffset: 0.65
           }}
-        labels={{
+          labels={{
             valueLabel: {
               style: { fontSize: "24px", fill: "#e0e0e0" },
               animateValue: true,
@@ -81,7 +96,7 @@ export function SuccessScreen({ result }) {
             <h2 className="mb-2 mt-4 text-xl font-bold text-white text-heading md:text-3xl lg:text-4xl">
               Your Text
             </h2>
-            <p className="text-lg font-normal text-white text-body lg:text-xl pb-4">{result.preview}</p>
+            <p className="text-lg font-normal text-white text-body lg:text-xl pb-4 max-w-[80vw] mx-auto break-words"><HighlightedText result={result} /></p>
           </>
         )}
       </div>

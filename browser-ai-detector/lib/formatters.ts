@@ -1,4 +1,4 @@
-import type { AiDetectResult, AiDetectRequest, TokenPart } from "./types";
+import type { AiDetectResult, AiDetectRequest, TokenPart, AiDetectResultText } from "./types";
 import type { TextApiResponse } from "../../shared/types/textApi";
 import type { ImageApiResponse } from "../../shared/types/imageApi";
 
@@ -34,12 +34,8 @@ function highlightTokens(tokens: string[], tokenProbs: number[], threshold: numb
     }));
 }
 
-export function getHighlightedTokens(response: TextApiResponse, threshold: number = 0.4): TokenPart[] {
-    if (!response.ok || !response.data) {
-        return [];
-    }
-
-    return highlightTokens(response.data.tokens, response.data.token_probs, threshold);
+export function getHighlightedTokens(response: AiDetectResultText, threshold: number = 0.4): TokenPart[] {
+    return highlightTokens(response.tokens, response.token_probs, threshold);
 }
 
 
@@ -65,7 +61,9 @@ export function formatTextDetection(
             sentence: item.sentence,
             score: item.score,
             percentage: scoreToPercent(item.score)
-        }))
+        })),
+        tokens: response.data.tokens,
+        token_probs: response.data.token_probs
     }
 }
 
