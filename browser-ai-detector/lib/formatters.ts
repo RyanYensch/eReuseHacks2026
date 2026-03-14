@@ -1,4 +1,4 @@
-import type { AiDetectResult, AiDetectRequest } from "./types";
+import type { AiDetectResult, AiDetectRequest, TokenPart } from "./types";
 import type { TextApiResponse } from "../../shared/types/textApi";
 import type { ImageApiResponse } from "../../shared/types/imageApi";
 
@@ -23,6 +23,25 @@ export function truncateText(text: string, maxLength: number = 180): string {
 
     return `${trimmed.slice(0, maxLength).trimEnd()}...`;
 }
+
+function highlightTokens(tokens: string[], tokenProbs: number[], threshold: number = 0.4): TokenPart[] {
+    const length = Math.min(tokens.length, tokenProbs.length);
+
+    return Array.from({ length }, (_, i) => ({
+        text: tokens[i],
+        highlighted: tokenProbs[i] > threshold,
+        score: tokenProbs[i]
+    }));
+}
+
+export function getHighlightedTokens(response: TextApiResponse, threshold: number = 0.4): TokenPart[] {
+    if (!response.ok || !response.data) {
+        return [];
+    }
+
+    return highlightTokens(response.data.tokens, response.data.token_probs, threshold);
+}
+
 
 export function formatTextDetection(
     response: TextApiResponse

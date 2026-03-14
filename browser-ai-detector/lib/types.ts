@@ -27,6 +27,8 @@ export type AiDetectResultText = {
     likelihood: string;
     preview: string;
     sentences?: sentenceScore[];
+    tokens?: string[];
+    token_probs?: number[];
 }
 
 export type AiDetectResultImage = {
@@ -53,3 +55,10 @@ export type PanelState =
         status: "error";
         error: string;
     };
+
+
+export type TokenPart = {
+    text: string;
+    highlighted: boolean;
+    score: number;
+}
