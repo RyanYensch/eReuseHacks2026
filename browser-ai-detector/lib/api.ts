@@ -35,8 +35,8 @@ export async function detectText(text: string): Promise<TextApiResponse> {
 
 export async function detectImage(imageUrl: string): Promise<ImageApiResponse> {
     try {
-        const res = await fetch(`${API_BASE_URL}/text`, {
-        method: "POST",
+        const res = await fetch(`${API_BASE_URL}/image`, {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
