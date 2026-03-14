@@ -10,8 +10,8 @@ export function scoreToLikelihood(score: number): string {
     if (score < 0.1) return "Very Likely Human";
     if (score < 0.2) return "Likely Human";
     if (score < 0.4) return "Unlikely Human";
-    if (score < 0.6) return "Likely Ai Generated";
-    return "Very Unlikely Human";
+    if (score < 0.6) return "Likely AI Generated";
+    return "Very Likely AI Generated";
 }
 
 export function truncateText(text: string, maxLength: number = 180): string {

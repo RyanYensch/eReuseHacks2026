@@ -4,6 +4,8 @@ import { IdleScreen } from "./IdleScreen"
 import { LoadingScreen } from "./LoadingScreen"
 import { SuccessScreen } from "./SuccessScreen"
 import { ErrorScreen } from "./ErrorScreen"
+import "../style.css"
+
 
 function IndexSidePanel() {
   const [state, setState] = useState<PanelState>({ status: "idle" });
@@ -22,7 +24,7 @@ function IndexSidePanel() {
   }, []);
 
   const DynamicStateComponent = () => {
-    switch(state.status) {
+    switch (state.status) {
       case "idle": return <IdleScreen />
       case "loading": return <LoadingScreen />
       case "success": return <SuccessScreen result={state.result} />
