@@ -26,7 +26,7 @@ export type TextReponse = {
     text: string;
 
     // The sentences and their likelihood
-    sentece_scores?: SentenceScore[]
+    sentence_scores?: SentenceScore[]
 
     // if score string was set to true
     score_string?: string;
