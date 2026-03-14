@@ -1,6 +1,6 @@
 {
   "name": "browser-ai-detector",
-  "displayName": "Browser ai detector",
+  "displayName": "Browser AI Detector",
   "version": "0.0.1",
   "description": "Detects AI in webcontent including text, images, and video",
   "author": "eReuse Hacks",

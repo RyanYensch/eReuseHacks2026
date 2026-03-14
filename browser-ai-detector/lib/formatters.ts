@@ -25,7 +25,6 @@ export function truncateText(text: string, maxLength: number = 180): string {
 }
 
 export function formatTextDetection(
-    request: Extract<AiDetectRequest, { kind: "text" }>,
     response: TextApiResponse
 ): AiDetectResult {
     if (!response.ok || !response.data) {
@@ -53,7 +52,6 @@ export function formatTextDetection(
 
 
 export function formatImageDetection(
-    request: Extract<AiDetectRequest, { kind: "image" }>,
     response: ImageApiResponse
 ): AiDetectResult {
     if (!response.ok || !response.data) {
