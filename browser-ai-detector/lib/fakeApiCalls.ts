@@ -8,26 +8,26 @@ export const fakeTextApiCall = async (): Promise<TextApiResponse> => {
   return {
     "ok": true,
     "data": {
-        "score": 0.8016229165451867,
-        "text": "This is sample text",
-        "sentence_scores": [
-          {
-            "score": 0.12,
-            "sentence": "This is sample text"
-          }
-        ],
-        "tokens": [
-          "This",
-          " is",
-          " sample",
-          " text"
-        ],
-        "token_probs": [
-          0.75,
-          0.77,
-          0.81,
-          0.84
-        ]
+      "score": 0.8016229165451867,
+      "text": "This is sample text",
+      "sentence_scores": [
+        {
+          "score": 0.12,
+          "sentence": "This is sample text"
+        }
+      ],
+      "tokens": [
+        "This",
+        " is",
+        " sample",
+        " text"
+      ],
+      "token_probs": [
+        0.75,
+        0.77,
+        0.81,
+        0.84
+      ]
     }
   }
 }
@@ -51,5 +51,14 @@ export const fakeImageApiCall = async (): Promise<ImageApiResponse> => {
         "uri": "https://sightengine.com/assets/img/examples/example-prop-c1.jpg"
       }
     }
+  }
+}
+
+
+export const fakeErrorApiCall = async (): Promise<ImageApiResponse> => {
+  await new Promise(resolve => setTimeout(resolve, 2000));
+  return {
+    "ok": false,
+    "error": "Saplin request failed: This is a test error"
   }
 }

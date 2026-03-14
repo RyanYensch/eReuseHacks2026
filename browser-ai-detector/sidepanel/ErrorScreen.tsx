@@ -1,7 +1,8 @@
 export function ErrorScreen({ error }) {
   return (
     <>
-      <p>Error</p>
+      <h2>An Error Has Occured!</h2>
+      <p>Error: {error}</p>
     </>
   );
 };
