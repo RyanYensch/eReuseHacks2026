@@ -1,4 +1,8 @@
-// Required for Plasmo to treat the file as a module
+import { detectText, detectImage } from "~lib/api";
+import type { PanelState } from "~lib/types";
+import { formatImageDetection, formatTextDetection } from "~lib/formatters";
+import { fakeImageApiCall, fakeTextApiCall } from "~lib/fakeApiCalls";
+
 export {};
 
 chrome.runtime.onInstalled.addListener(() => {
@@ -9,12 +13,59 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-chrome.contextMenus.onClicked.addListener((info, tab) => {
+// Handles AI detection and updates status for sidepanel display
+const handleApiCall = async (info) => {
+  // Handle AI detection API calls
+  if (info.mediaType == "image") {
+    // Handle image
+    try {
+      // TODO: Uncomment the API calls for real usage
+      // const res = await detectImage(info.Url);
+
+      const res = await fakeImageApiCall();
+      const successState: PanelState = {
+        status: "success",
+        result: formatImageDetection(res)
+      };
+      await chrome.storage.session.set({ panelState: successState });
+    } catch (e) {
+      // Update state to error
+      const errorState: PanelState = {
+        status: "error",
+        error: e
+      };
+      await chrome.storage.session.set({ panelState: errorState });
+    }
+  } else {
+    // Handle text
+    try {
+      // TODO: Uncomment the API calls for real usage
+      // const res = await detectText(info.selectionText);
+
+      const res = await fakeTextApiCall();
+      const successState: PanelState = {
+        status: "success",
+        result: formatTextDetection(res)
+      };
+      await chrome.storage.session.set({ panelState: successState });
+    } catch (e) {
+      // Update state to error
+      const errorState: PanelState = {
+        status: "error",
+        error: e
+      };
+      await chrome.storage.session.set({ panelState: errorState });
+    }
+  }
+};
+
+chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === "context-menu-item") {
-    console.log("Selected text:", info.selectionText);
     chrome.sidePanel.open({ windowId: tab.windowId });
 
-    // Use info.mediaType to check for 'image' type
-    // Use info.selectedText to get the text for the context selection
+    // Filler state before API call is done
+    const loadingState: PanelState = { status: "loading" };
+    await chrome.storage.session.set({ panelState: loadingState });
+    handleApiCall(info);
   }
 });
