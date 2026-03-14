@@ -1,4 +1,4 @@
-import type { AiDetectResult, AiDetectRequest } from "./types";
+import type { AiDetectResult, AiDetectRequest, TokenPart, AiDetectResultText } from "./types";
 import type { TextApiResponse } from "../../shared/types/textApi";
 import type { ImageApiResponse } from "../../shared/types/imageApi";
 
@@ -24,6 +24,21 @@ export function truncateText(text: string, maxLength: number = 180): string {
     return `${trimmed.slice(0, maxLength).trimEnd()}...`;
 }
 
+function highlightTokens(tokens: string[], tokenProbs: number[], threshold: number = 0.4): TokenPart[] {
+    const length = Math.min(tokens.length, tokenProbs.length);
+
+    return Array.from({ length }, (_, i) => ({
+        text: tokens[i],
+        highlighted: tokenProbs[i] > threshold,
+        score: tokenProbs[i]
+    }));
+}
+
+export function getHighlightedTokens(response: AiDetectResultText, threshold: number = 0.4): TokenPart[] {
+    return highlightTokens(response.tokens, response.token_probs, threshold);
+}
+
+
 export function formatTextDetection(
     response: TextApiResponse
 ): AiDetectResult {
@@ -46,7 +61,9 @@ export function formatTextDetection(
             sentence: item.sentence,
             score: item.score,
             percentage: scoreToPercent(item.score)
-        }))
+        })),
+        tokens: response.data.tokens,
+        token_probs: response.data.token_probs
     }
 }
 
