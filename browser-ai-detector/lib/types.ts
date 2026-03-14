@@ -1,12 +1,12 @@
 import type { TextApiResponse } from "../../shared/types/textApi";
 
 export type AiDetectRequestText = {
-    kindL: "text",
+    kind: "text",
     value: string;
 }
 
 export type AiDetectRequestImage = {
-    kindL: "image",
+    kind: "image",
     value: string;
 }
 
