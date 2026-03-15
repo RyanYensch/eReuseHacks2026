@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import "./style.css"
 import highlightImg from "./assets/highlight-text.png"
 import rightClick from "./assets/right-click.png"
