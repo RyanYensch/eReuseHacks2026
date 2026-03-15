@@ -20,7 +20,7 @@ This includes:
 - Head to [chrome://extensions/](chrome://extensions/).
 - Enable **Developer mode** in the top-right corner.
 - Select **Load unpacked** in the top-left corner.
-- Locate the folder `eReuseHacks2026/browser-ai-detector/chrome-mv3-dev` and select it.
+- Locate the folder `eReuseHacks2026/browser-ai-detector/build/chrome-mv3-dev` and select it.
 - The extension is now installed.
 - Click on the extension in the top-right of your browser for a usage guide, or [check out it out here](browser-ai-detector/README.md)
 
