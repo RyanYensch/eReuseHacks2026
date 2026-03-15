@@ -2,7 +2,19 @@
 
 ## How to Run
 
-`npm run dev`
+Create a `.env` with the following:
+
+```BASH
+PORT=6767
+SAPLING_API_KEY=PRIVATE_KEY
+SIGHTENGINE_API_USER=USER_ID
+SIGHTENGINE_API_SECRET=SECRET
+```
+
+```BASH
+npm i
+npm run dev
+```
 
 ## Endpoints
 
