@@ -5,13 +5,13 @@
 
 /* Adjusting popup window size */
 .popup-window {
-    width: 360px;
-    height: 500px;
+    width: 450px;
+    height: 600px;
     margin: 0;
     padding: 0;
 
     color: white;
-    background-color: oklch(37.3% 0.034 259.733);
+    background-color: #374151; /* Tailwind CSS' bg-gray-700 */
 
     border-color: grey;
     border-width: 1px;
