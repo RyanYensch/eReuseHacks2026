@@ -5,7 +5,6 @@ This includes:
 
 - Text
 - Images
-- Videos
 
 ## The Team
 
@@ -15,6 +14,14 @@ This includes:
 - Jagadeesh Thirunavukkarasu
 - Khaleed Mohammed
 - Lakshmi Narasimhan Srinivasan
+
+## How To Install
+- Head to [chrome://extensions/](chrome://extensions/).
+- Enable **Developer mode** in the top-right corner.
+- Select **Load unpacked** in the top-left corner.
+- Locate the folder `eReuseHacks2026/browser-ai-detector/chrome-mv3-dev` and select it.
+- The extension is now installed.
+- Click on the extension in the top-right of your browser for a usage guide
 
 ## How To Run
 
