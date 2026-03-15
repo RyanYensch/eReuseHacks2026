@@ -20,6 +20,8 @@ This will create `eReuseHacks2026/browser-ai-detector/chrome-mv3-prod`
 - The extension is now installed.
 - Click on the extension in the top-right of your browser for a usage guide
 
+![User Guide](assets/usage-guide.png)
+
 ## How To Use
 
 Once installed, and the backend is running, go to any website and do either of the following:
