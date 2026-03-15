@@ -16,12 +16,13 @@ This includes:
 - Lakshmi Narasimhan Srinivasan
 
 ## How To Install
+
 - Head to [chrome://extensions/](chrome://extensions/).
 - Enable **Developer mode** in the top-right corner.
 - Select **Load unpacked** in the top-left corner.
 - Locate the folder `eReuseHacks2026/browser-ai-detector/chrome-mv3-dev` and select it.
 - The extension is now installed.
-- Click on the extension in the top-right of your browser for a usage guide
+- Click on the extension in the top-right of your browser for a usage guide, or [check out it out here](browser-ai-detector/README.md)
 
 ## How To Run
 
@@ -41,9 +42,15 @@ npm i
 npm run dev
 ```
 
+#### Using the Backend API
+
+Read all of the endpoint usages [in the backend README](backend/README.md)
+
 #### Backend ENV
 
-```ENV
+Create an env at `/backend/.env` with the following:
+
+```BASH
 PORT=6767
 SAPLING_API_KEY=PRIVATE_KEY
 SIGHTENGINE_API_USER=USER_ID
