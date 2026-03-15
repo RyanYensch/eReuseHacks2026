@@ -1,37 +1,41 @@
-This is a [Plasmo extension](https://docs.plasmo.com/) project bootstrapped with [`plasmo init`](https://www.npmjs.com/package/plasmo).
+# AI Browser Extension
 
-## Getting Started
-
-Install dependencies
-
-```npm i```
-
-First, run the development server:
-
-```bash
-pnpm dev
-# or
-npm run dev
-```
-
-Open your browser and load the appropriate development build. For example, if you are developing for the chrome browser, using manifest v3, use: `build/chrome-mv3-dev`.
-
-You can start editing the popup by modifying `popup.tsx`. It should auto-update as you make changes. To add an options page, simply add a `options.tsx` file to the root of the project, with a react component default exported. Likewise to add a content page, add a `content.ts` file to the root of the project, importing some module and do some logic, then reload the extension on your browser.
-
-For further guidance, [visit our Documentation](https://docs.plasmo.com/)
-
-## Making production build
+## How to build
 
 Run the following:
 
-```bash
-pnpm build
-# or
+```BASH
+npm i
 npm run build
 ```
 
-This should create a production bundle for your extension, ready to be zipped and published to the stores.
+This will create `eReuseHacks2026/browser-ai-detector/chrome-mv3-prod`
 
-## Submit to the webstores
+## How To Install
 
-The easiest way to deploy your Plasmo extension is to use the built-in [bpp](https://bpp.browser.market) GitHub action. Prior to using this action however, make sure to build your extension and upload the first version to the store to establish the basic credentials. Then, simply follow [this setup instruction](https://docs.plasmo.com/framework/workflows/submit) and you should be on your way for automated submission!
+- Head to [chrome://extensions/](chrome://extensions/).
+- Enable **Developer mode** in the top-right corner.
+- Select **Load unpacked** in the top-left corner.
+- Locate the folder `eReuseHacks2026/browser-ai-detector/chrome-mv3-prod` and select it.
+- The extension is now installed.
+- Click on the extension in the top-right of your browser for a usage guide
+
+## How To Use
+
+Once installed, and the backend is running, go to any website and do either of the following:
+
+### Text
+
+1. Highlight the text
+![Highlight Text](assets/highlight-text.png)
+2. Right click and select `Detect AI`
+![Right Click](assets/right-click.png)
+3. Get the results!
+![Text Resuls](assets/result-text.png)
+
+### Images
+
+1. Right click the image and select `Detect AI`
+![Right Click](assets/right-click.png)
+2. Get the results!
+![Image Resuls](assets/result-image.png)
